@@ -1,16 +1,36 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './global';
+
 import '../styles/darktheme.css';
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const Darktheme = () => {
-    const [darkMode, setDarkMode] = useState(); 
+  const [theme, setTheme] = useState('light'); 
+  
+  const toggleTheme = () => {
+    // if the theme is not light, then set it to dark
+    if (theme === 'light') {
+      setTheme('dark');
+    // otherwise, it should be light
+    } else {
+      setTheme('light');
+    }
+  }
     
     return (
-        <div className={darkMode? 'dark-mode': 'light-mode'}>
-        <div className="change-theme">
-          <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>click to change theme </button>
-          <h1>hello</h1>
-        </div>
-        </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <>
+      <GlobalStyles />
+      <DarkModeToggle
+      className="theme-btn"
+      onChange={toggleTheme}
+      checked={toggleTheme}
+      size={50}
+    />
+    </>
+    </ThemeProvider>
     )
 }
 export default Darktheme;

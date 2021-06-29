@@ -1,14 +1,15 @@
 import React from 'react';
 import Darktheme from './components/Darktheme';
-// import Login from './components/Login';
-// import Register from './components/Register';
+import Likes from './components/Likes';
 
 function App() {
-  return (
-    <div className="App">
-    <Darktheme />
 
-    </div>
+  return (
+ <div>
+   <Darktheme />
+   <Likes />
+ </div>
+    
   );
 }
 
