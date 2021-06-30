@@ -4,6 +4,11 @@
 node_modules
 /.pnp
 .pnp.js
+Darktheme.jsx
+global.js
+theme.js
+Likes.jsx
+darktheme.css
 
 # testing
 /coverage

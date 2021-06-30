@@ -1,32 +1,29 @@
 import React,{ useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import '../styles/Likes.css';
+
+const colors = ['grey', 'red'];
 
 const Likes = () => {
-    const [like, setLike] = useState(0); 
+    const [colorIndex, setColorIndex] = useState(0);
 
-    const handleClick = () => {
-      setLike(!like);
-    };
-
+    const nextColor = () => {
+      const newColorIndex = colorIndex + 1;
+      if (colors[newColorIndex]) 
+          setColorIndex(newColorIndex);
+      else
+          setColorIndex(0);
+  }
     return (
         <div>
-          <button
-           className="like-btn"
-              
-              onClick={handleClick}>
-                {like ? like + 0  : like}
                 
           <FontAwesomeIcon
            icon={faHeart}
-           className="like-icon"
+           style = {{color: colors[colorIndex]}}
+           onClick={nextColor}
           />
-            </button>
-         </div> 
-       
+         </div>  
     )
 }
 export default Likes;
