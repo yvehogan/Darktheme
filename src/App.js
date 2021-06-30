@@ -10,6 +10,8 @@ import Cakes from './components/Cakes';
 import Pasta from './components/Pasta';
 import About from './components/About';
 
+import Veggies from './pages/Veggies';
+
 function App() {
 
   return (
@@ -36,6 +38,10 @@ function App() {
 
             <Route exact path='/About'>
             <About />
+            </Route>
+
+            <Route exact path='/Veggies'>
+            <Veggies />
             </Route>
 
           </Switch>        
